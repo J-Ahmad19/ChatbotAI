@@ -4,7 +4,7 @@ import json
 import os
 
 
-api_key=st.sectrets["OPENROUTER_API_KEY"]
+api_key=st.secrets["OPENROUTER_API_KEY"]
 
 
 
