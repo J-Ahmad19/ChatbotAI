@@ -1,6 +1,12 @@
 import requests
 import streamlit as st
 import json
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+api_key = os.getenv("OPENROUTER_API_KEY")
 
 
 
@@ -57,7 +63,7 @@ if prompt:
     # OpenRouter request
     url = "https://openrouter.ai/api/v1/chat/completions"
     headers = {
-        "Authorization": f"Bearer {st.secrets['OPENROUTER_API_KEY']}",
+        "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
     }
     payload = {
