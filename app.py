@@ -4,12 +4,19 @@ import json
 import os
 from streamlit_mic_recorder import speech_to_text
 
-st.write("🎤 Speak your question:")
-user_voice = speech_to_text(language='en', use_container_width=True)
+# 🎤 Small mic button
+user_voice = speech_to_text(
+    language='en',
+    icon_size="2x",        # smaller button
+    just_once=True,
+    use_container_width=False
+)
 
 if user_voice:
     st.chat_message("user").markdown(user_voice)
     st.session_state.messages.append({"role": "user", "content": user_voice})
+    prompt = use
+
 
 
 api_key=st.secrets["OPENROUTER_API_KEY"]
