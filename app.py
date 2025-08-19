@@ -4,18 +4,19 @@ import json
 import os
 from streamlit_mic_recorder import speech_to_text
 
-# 🎤 Small mic button
-user_voice = speech_to_text(
-    language='en',
-    icon_size="2x",        # smaller button
-    just_once=True,
-    use_container_width=False
-)
+# 🎤 Voice input option
+st.write("🎤 Speak your question:")
+user_voice = speech_to_text(language='en', use_container_width=True, just_once=True)
 
+# If user speaks, treat it like typed input
 if user_voice:
     st.chat_message("user").markdown(user_voice)
     st.session_state.messages.append({"role": "user", "content": user_voice})
-    prompt = use
+    prompt = user_voice   # so your chatbot handles it like normal text
+else:
+    # fallback to text input
+    prompt = st.chat_input("Ask me anything..")
+
 
 
 
