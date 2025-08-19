@@ -8,11 +8,6 @@ from streamlit_mic_recorder import speech_to_text
 st.write("🎤 Speak your question:")
 user_voice = speech_to_text(language='en', use_container_width=True, just_once=True)
 
-# If user speaks, treat it like typed input
-if user_voice:
-    st.chat_message("user").markdown(user_voice)
-    st.session_state.messages.append({"role": "user", "content": user_voice})
-    prompt = user_voice   # so your chatbot handles it like normal text
 
 
 
@@ -57,6 +52,13 @@ for message in st.session_state.messages:
 
 # Get user input
 prompt = st.chat_input("Ask me anything..")
+
+# If user speaks, treat it like typed input
+if user_voice:
+    st.chat_message("user").markdown(user_voice)
+    st.session_state.messages.append({"role": "user", "content": user_voice})
+    prompt = user_voice   # so your chatbot handles it like normal text
+
 
 
 
