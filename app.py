@@ -83,7 +83,7 @@ if prompt:
                         # Update typing animation
                         # Update typing animation
                         response_container.markdown(
-                            f"<div style='color:#99ff00; font-weight:500;'>🤖 <b>UltronAI:</b> {full_reply}</div>",
+                            f"<div style='color:white; font-weight:500;'>🤖 <b>UltronAI:</b> {full_reply}</div>",
                             unsafe_allow_html=True
                          )
 
