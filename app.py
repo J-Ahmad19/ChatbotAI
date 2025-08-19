@@ -13,9 +13,7 @@ if user_voice:
     st.chat_message("user").markdown(user_voice)
     st.session_state.messages.append({"role": "user", "content": user_voice})
     prompt = user_voice   # so your chatbot handles it like normal text
-else:
-    # fallback to text input
-    prompt = st.chat_input("Ask me anything..")
+
 
 
 
