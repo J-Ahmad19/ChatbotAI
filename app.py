@@ -2,6 +2,14 @@ import requests
 import streamlit as st
 import json
 import os
+from streamlit_mic_recorder import speech_to_text
+
+st.write("🎤 Speak your question:")
+user_voice = speech_to_text(language='en', use_container_width=True)
+
+if user_voice:
+    st.chat_message("user").markdown(user_voice)
+    st.session_state.messages.append({"role": "user", "content": user_voice})
 
 
 api_key=st.secrets["OPENROUTER_API_KEY"]
